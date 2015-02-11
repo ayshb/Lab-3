@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bear</title>
+		<script src='http://d3js.org/d3.v2.min.js'></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+	  <script>
+	    var svg = d3.select("body").append("svg").attr("width",500).attr("height",500);
+
+	    var bear = {"ears":"green","face":"yellow"};
+
+	    svg.append("circle").attr("cx",20).attr("cy",20).attr("r",20).attr("fill",bear.ears);
+	    svg.append("circle").attr("cx",85).attr("cy",20).attr("r",20).attr("fill",bear.ears);
+	    svg.append("circle").attr("cx",52).attr("cy",55).attr("r",40).attr("fill",bear.face);
+	    svg.append("ellipse").attr("cx",40).attr("cy",50).attr("rx",5).attr("ry",8).attr("fill","white");
+	    svg.append("ellipse").attr("cx",65).attr("cy",50).attr("rx",5).attr("ry",8).attr("fill","white");
+	    svg.append("circle").attr("cx",40).attr("cy",53).attr("r",2).attr("fill","black");
+	    svg.append("circle").attr("cx",65).attr("cy",53).attr("r",2).attr("fill","black");
+	    svg.append("rect").attr("x",50).attr("y",60).attr("width",5).attr("height",5).attr("fill","black");
+	    svg.append("path").attr("d","M 38 70 q 15 30 30 0").attr("stroke","black").attr("stroke-width",2).attr("fill","none");
+
+	  </script>
+	</body>
+</html>

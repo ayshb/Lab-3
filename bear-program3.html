@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bear</title>
+		<script src='http://d3js.org/d3.v2.min.js'></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+	  <script>
+	    var svg = d3.select("body").append("svg")
+	    .attr("width",1000).attr("height",500);
+
+	    dataset = ["bear_bobby","bear_alex","bear_sam"];
+
+	    // create a group for each bear 
+	    var groups = svg.selectAll("g")
+	       .data(dataset)
+	       .enter()
+	       .append("g");
+
+		var ear1 = svg.selectAll("g").data(dataset).append("circle");
+
+	    // set 
+	    ear1.attr("cx", function(d,i) {
+                                    // d is the actual data element, i is the index of that element in dataset
+	                            console.log("creating a circle for "+d+" (bear #"+i+")");
+                                    // calculate where to place the circle
+                                    return ((i*200) + 65);  
+                             })
+	    .attr("cy",20)
+	    .attr("r",20)
+	    .attr("fill","black");
+
+	    var ear2 = svg.selectAll("g").data(dataset).append("circle");
+
+	    // set 
+	    ear2.attr("cx", function(d,i) {
+                                    // d is the actual data element, i is the index of that element in dataset
+	                            console.log("creating a circle for "+d+" (bear #"+i+")");
+                                    // calculate where to place the circle
+                                    return ((i*200) + 135);  
+                             })
+	    .attr("cy",20)
+	    .attr("r",20)
+	    .attr("fill","black");
+
+	    var faces = svg.selectAll("g").data(dataset).append("circle");
+
+	    // set 
+	    faces.attr("cx", function(d,i) {
+                                    // d is the actual data element, i is the index of that element in dataset
+	                            console.log("creating a circle for "+d+" (bear #"+i+")");
+                                    // calculate where to place the circle
+                                    return ((i*200) + 100);  
+                             })
+	    .attr("cy",50)
+	    .attr("r",40)
+	    .attr("fill","red");
+            // END OF FACE DRAWING
+
+	    // write the rest of the code to fill in all the bears 
+	    // ADD CODE HERE
+
+	  </script>
+	</body>
+</html>

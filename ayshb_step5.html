@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bear</title>
+		<script src='http://d3js.org/d3.v2.min.js'></script>
+		<style type="text/css">
+			/* No style rules here yet */		
+		</style>
+	</head>
+	<body>
+	  <script>
+	    var svg = d3.select("body").append("svg")
+	    .attr("width",1000).attr("height",500);
+
+	    dataset = [{"leftear":"black","rightear":"black","face":"red","nose":"black","lefteye":"white","righteye":"white","lefteyeball":"brown","righteyeball":"brown","smile":"black"},{"leftear":"green","rightear":"green","face":"yellow","nose":"black","lefteye":"black","righteye":"black","lefteyeball":"green","righteyeball":"green","smile":"green"},{"leftear":"red","rightear":"red","face":"black","nose":"red","lefteye":"white","righteye":"white","lefteyeball":"blue","righteyeball":"blue","smile":"red"}];
+
+	    // create a group for each bear 
+	    var groups = svg.selectAll("g")
+	       .data(dataset)
+	       .enter()
+	       .append("g");
+
+		var ear1 = svg.selectAll("g").data(dataset).append("circle");
+	    ear1.attr("cx", function(d,i) {
+                                    return ((i*200) + 65);  
+                             })
+	    .attr("cy",20)
+	    .attr("r",20)
+	    .attr("fill", function(d){
+			return d['leftear'];
+		});
+
+	    var ear2 = svg.selectAll("g").data(dataset).append("circle");
+	    ear2.attr("cx", function(d,i) {
+                                    return ((i*200) + 135);  
+                             })
+	    .attr("cy",20)
+	    .attr("r",20)
+	    .attr("fill", function(d){
+			return d['rightear'];
+		});
+
+	    var faces = svg.selectAll("g").data(dataset).append("circle");
+
+	    // set 
+	    faces.attr("cx", function(d,i) {
+                                    // d is the actual data element, i is the index of that element in dataset
+	                            console.log("creating a circle for "+d+" (bear #"+i+")");
+                                    // calculate where to place the circle
+                                    return ((i*200) + 100);  
+                             })
+	    .attr("cy",50)
+	    .attr("r",40)
+	    .attr("fill", function(d){
+			return d['face'];
+		});
+            // END OF FACE DRAWING
+
+        var eye1 = svg.selectAll("g").data(dataset).append("ellipse");
+	    eye1.attr("cx", function(d,i) {
+                                    return ((i*200) + 90);  
+                             })
+	    .attr("cy",40)
+	    .attr("rx",5)
+	    .attr("ry",7)
+	    .attr("fill", function(d){
+			return d['lefteye'];
+		});
+
+	    var eye2 = svg.selectAll("g").data(dataset).append("ellipse");
+	    eye2.attr("cx", function(d,i) {
+                                    return ((i*200) + 115);  
+                             })
+	    .attr("cy",40)
+	    .attr("rx",5)
+	    .attr("ry",7)
+	    .attr("fill", function(d){
+			return d['righteye'];
+		});
+
+	    var eyeball1 = svg.selectAll("g").data(dataset).append("circle");
+	    eyeball1.attr("cx", function(d,i) {
+                                    return ((i*200) + 90);  
+                             })
+	    .attr("cy",43)
+	    .attr("r",2)
+	    .attr("fill", function(d){
+			return d['lefteyeball'];
+		});
+
+	    var eyeball2 = svg.selectAll("g").data(dataset).append("circle");
+	    eyeball2.attr("cx", function(d,i) {
+                                    return ((i*200) + 115);  
+                             })
+	    .attr("cy",43)
+	    .attr("r",2)
+	    .attr("fill", function(d){
+			return d['righteyeball'];
+		});
+
+	    var nose = svg.selectAll("g").data(dataset).append("rect");
+	    nose.attr("x", function(d,i) {
+                                    return ((i*200) + 100);  
+                             })
+	    .attr("y",50)
+	    .attr("width",5)
+	    .attr("height",5)
+	    .attr("fill", function(d){
+			return d['nose'];
+		});
+
+	    var mouth = svg.selectAll("g").data(dataset).append("path");
+	    mouth.attr("d",function(d,i) {                                    							return ("M "+ ((i*200) + 87) + " 60 q 15 30 30 0");
+                             })
+
+	    .attr("stroke", function(d){
+			return d['smile'];
+		})
+	    .attr("stroke-width",2)
+	    .attr("fill","none");
+
+	    // write the rest of the code to fill in all the bears 
+	    // ADD CODE HERE
+
+	  </script>
+	</body>
+</html>
